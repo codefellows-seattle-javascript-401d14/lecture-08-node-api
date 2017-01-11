@@ -1,0 +1,29 @@
+{
+  "name": "lecture-08-node-api",
+  "version": "1.0.0",
+  "description": "401 JS --  Lab 08 rest api using http module ===",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha",
+    "watch": "./node_modules/nodemon/bin/nodemon.js server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/devonhackley/lecture-08-node-api.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/devonhackley/lecture-08-node-api/issues"
+  },
+  "homepage": "https://github.com/devonhackley/lecture-08-node-api#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.2.0",
+    "superagent": "^3.3.2",
+  },
+  "dependencies": {
+    "nodemon": "^1.11.0"
+  }
+}
