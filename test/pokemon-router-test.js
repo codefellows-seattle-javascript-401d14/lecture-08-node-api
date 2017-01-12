@@ -51,7 +51,6 @@ describe('testing /api/pokemon', function() {
           pokedexNUM: 4,
           moves: '"scratch", "ember", "tail whip"',
         });
-        console.log(this.tempPokemon.id);
         storage.setItem('pokemon', this.tempPokemon)
         .then(() => done())
         .catch(done);
@@ -98,6 +97,30 @@ describe('testing /api/pokemon', function() {
           expect(err.status).to.equal(404);
           done();
         });
+      });
+    });
+  });
+  describe('testing DELETE', function() {
+    describe('with valid input', function() {
+      before(done => {
+        this.tempPokemon = new Pokemon({
+          name:'Charmander',
+          type: 'fire',
+          pokedexNUM: 4,
+          moves: '"scratch", "ember", "tail whip"',
+        });
+        storage.setItem('pokemon', this.tempPokemon)
+        .then(() => done())
+        .catch(done);
+      });
+
+      it('should delete a pokemon from a given id', (done) => {
+        superagent.delete(`${apiURL}/api/pokemon?id=${this.tempPokemon.id}`)
+        .then(res => {
+          expect(Boolean(res.body.id)).to.equal(false);
+          done();
+        })
+        .catch(done);
       });
     });
   });
