@@ -13,7 +13,7 @@
 
 
 ## Description
-This is a (work-inprogess) API of pokemon, that is built using a HTTP server.
+This is a (work-inprogess) API of pokemon, that is built using a HTTP server. The data is stored within the file system, so that if the server is disconnected the data still persists. 
 
 <!-- links -->
 [Nodejs http docs]: https://nodejs.org/api/http.html
