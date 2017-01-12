@@ -1,0 +1,37 @@
+{
+  "name": "lecture-08-node-api",
+  "version": "1.0.0",
+  "description": "401 JS --  Lab 08 rest api using http module ===",
+  "main": "server.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "watch": "./node_modules/nodemon/bin/nodemon.js server.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thomasxmartinez/lecture-08-node-api.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thomasxmartinez/lecture-08-node-api/issues"
+  },
+  "homepage": "https://github.com/thomasxmartinez/lecture-08-node-api#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.2.0",
+    "node-uuid": "^1.4.7",
+    "superagent": "^3.3.2",
+    "uuid": "^3.0.1"
+  },
+  "dependencies": {
+    "nodemon": "^1.11.0",
+    "superagent": "^3.3.2",
+    "uuid": "^3.0.1"
+  }
+}
