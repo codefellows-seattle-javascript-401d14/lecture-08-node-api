@@ -6,7 +6,7 @@ const Thundercat = require('../model/thundercat.js');
 const storage = require('../lib/storage.js');
 
 const apiURL = `http://localhost:${process.env.PORT || 3000}`;
-require('../servers.js');
+require('../server.js');
 
 describe('testing /api/thundercats', function(){
   describe('testing POST', function(){
@@ -23,7 +23,6 @@ describe('testing /api/thundercats', function(){
           expect(res.body.name).to.equal('lion-o');
           expect(res.body.origin).to.equal('thundera');
           expect(res.body.group).to.equal('thundercats');
-          expect(Boolean(res.body.created)).to.equal(true);
           expect(Boolean(res.body.id)).to.equal(true);
           done();
         })
@@ -56,7 +55,6 @@ describe('testing /api/thundercats', function(){
           expect(res.body.origin).to.equal(this.tempKitty.origin);
           expect(res.body.group).to.equal(this.tempKitty.group);
           expect(res.body.id).to.equal(this.tempKitty.id);
-          expect(Boolean(res.body.created)).to.equal(true);
           expect(Boolean(res.body.id)).to.equal(true);
           done();
         })

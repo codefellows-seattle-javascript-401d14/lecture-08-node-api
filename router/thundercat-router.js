@@ -11,7 +11,7 @@ module.exports = function(router){
     //   on success: send thundercat back
     //   on failer: send error back
     if(!req.body.name || !req.body.origin || !req.body.group){
-      let err = new Error('Sword of Omens! Give me sight beyond sight!');
+      let err = new Error('Sword of Omens! Give me sight beyond sight! (⊙ ‿ ⊙)');
       console.error(err);
       res.statusCode = 400; // bad request
       res.end();
@@ -37,7 +37,15 @@ module.exports = function(router){
   router.get('/api/thundercats', function(req, res){
     let id = req.url.query.id;
     // TODO: put logic right here for a 400 if no id
+    if (!req.url.query.id) {
+      let err = new Error('Sword of Omens! Give me sight beyond sight! (⊙ ‿ ⊙)');
+      console.error(err);
+      res.statusCode = 400; // bad request
+      res.end();
+      return;
+    }
     storage.getItem('thundercats', id)
+
     .then(thundercat => {
       res.setHeader('Content-Type', 'application/json');
       res.write(JSON.stringify(thundercat));
