@@ -7,7 +7,8 @@
 ## Usage
   Users are able to GET, POST, DELETE json, using this API.
   * From the command line, you first start the server doing `node server.js`.
-  * Then 
+  * Then you can start doing request, by `http (method) :3000/api/pokemon`.
+  * You will be getting status codes depending on if the request was       succesful or not.
 
 
 
