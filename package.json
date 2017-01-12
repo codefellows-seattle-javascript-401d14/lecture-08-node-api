@@ -1,0 +1,31 @@
+{
+  "name": "lecture-08-node-api",
+  "version": "0.0.1",
+  "description": "lab 08 gnoevil",
+  "main": "server.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gnoevil/lecture-08-node-api.git"
+  },
+  "author": "geno.guerrero@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gnoevil/lecture-08-node-api/issues"
+  },
+  "homepage": "https://github.com/gnoevil/lecture-08-node-api#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.2.0",
+    "superagent": "^3.3.2"
+  },
+  "dependencies": {
+    "node-uuid": "^1.4.7"
+  }
+}
