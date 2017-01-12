@@ -8,7 +8,8 @@ describe('Testing the pokemon model', function(){
     let testPokemon = {
       name:'Bulbasuar',
       type: 'Grass',
-      moves: ['cut','pound','solarbeam'],
+      moves: '"cut", "pound", "solarbeam"',
+      pokedexNUM: 1,
     };
     let tempPokemon = new Pokemon(testPokemon);
     expect(tempPokemon.name).to.equal(testPokemon.name);
