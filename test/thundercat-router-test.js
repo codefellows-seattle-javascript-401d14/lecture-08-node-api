@@ -62,7 +62,20 @@ describe('testing /api/thundercats', function(){
       });
     });
 
-    describe('with invalid input', function(){
-    });
-  });
-});
+//     describe('with invalid input', function(){
+//     });
+//   });
+//
+// //   describe('testing thundercat removal', function(){
+// //     describe('with Mumra\'s approval', function() {
+// //     it('should slay a thundercat',() => {
+// //       superagent.delete(`${apiURL}/api/thundercat?id=${res.body.id}`)
+// //       .end((err, res) => {
+// //         if(err) return done(err);
+// //         expect(res.status).to.equal(204);
+// //         done();
+// //       });
+// //     });
+// //   });
+// // });
+// // })

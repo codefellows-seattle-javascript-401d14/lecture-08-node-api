@@ -37,7 +37,7 @@ module.exports = function(router){
   router.get('/api/thundercats', function(req, res){
     let id = req.url.query.id;
     // TODO: put logic right here for a 400 if no id
-    if (!req.url.query.id) {
+    if (!id) {
       let err = new Error('Sword of Omens! Give me sight beyond sight! (⊙ ‿ ⊙)');
       console.error(err);
       res.statusCode = 400; // bad request
@@ -55,7 +55,34 @@ module.exports = function(router){
       // make better errors Lion-o
       // TODO:  put logic in here for a 404 if getItem didnt find a note
       console.error(err);
-      res.statusCode = 500;
+      res.statusCode = err.status;
+      res.end();
+    });
+  });
+
+  router.delete('/api/thundercats', function(req, res){
+    let id = req.url.query.id;
+
+    if (!id) {
+      let err = new Error('Sword of Omens! Give me sight beyond sight! (⊙ ‿ ⊙)');
+      console.error(err);
+      res.statusCode = 400; // bad request
+      res.end();
+      return;
+    }
+    storage.deleteItem('thundercats', id)
+
+    .then(thundercat => {
+      console.log(thundercat);
+      res.setHeader('Content-Type', 'application/json');
+      res.statusCode = 204;
+      res.end();
+    })
+    .catch(err => {
+      // make better errors Lion-o
+      // TODO:  put logic in here for a 404 if getItem didnt find a note
+      console.error(err);
+      res.statusCode = err.status;
       res.end();
     });
   });

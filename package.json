@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/irvinemd55/lecture-08-node-api#readme",
   "dependencies": {
+    "bluebird": "^3.4.7",
     "chai": "^3.5.0",
     "mocha": "^3.2.0",
     "node-uuid": "^1.4.7",
