@@ -3,16 +3,14 @@
 const storage = require('../lib/storage.js');
 const Athlete = require('../model/athlete.js');
 
-module.exports = function(router){
-  router.post('/api/athletes', function(req, res){
-    if(!req.body.athlete_name || !req.body.sport){
-      res.statusCode = 400; // bad request
+module.exports = function(router) {
+  router.post('/api/athletes', function(req, res) {
+    if(!req.body.athlete_name || !req.body.sport) {
+      res.statusCode = 400;
       res.end();
       return;
     }
-
     let athlete = new Athlete(req.body);
-
     storage.createItem('athletes', athlete)
     .then(athlete => {
       res.setHeader('Content-Type', 'application/json');
@@ -44,7 +42,7 @@ module.exports = function(router){
       res.end();
     });
   });
-  router.delete('/api/games', function(req, res) {
+  router.delete('/api/athletes', function(req, res) {
     let id = req.url.query.id;
     if(!id) {
       let err = new Error('ID does not exist');
@@ -52,8 +50,7 @@ module.exports = function(router){
       res.statusCode = 400;
       res.end();
     }
-
-    storage.deleteItem('games', id)
+    storage.deleteItem('athletes', id)
     .then(() => {
       console.log('item deleted!');
       res.statusCode = 204;
