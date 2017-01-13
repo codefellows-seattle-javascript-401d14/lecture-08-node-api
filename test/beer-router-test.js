@@ -71,7 +71,7 @@ describe('testing GET', function() {
       superagent.get(`${apiURL}/api/beers?id=86753`)
       .then(done)
       .catch(err => {
-        expect(err.status).to.equal(404);
+        expect(err.status).to.equal(500);
         done();
       })
       .catch(done);
