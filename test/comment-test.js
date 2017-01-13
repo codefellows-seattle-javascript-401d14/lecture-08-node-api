@@ -11,7 +11,8 @@ describe('testing comment model', function(){
     };
     let tempComment = new Comment(data);
     expect(Boolean(tempComment.id)).to.equal(true);
+    expect(tempComment.created instanceof Date).to.equal(true);
+    expect(tempComment.announcer).to.equal(data.announcer);
     expect(tempComment.comment).to.equal(data.comment);
-    expect(tempComment.announcer).to.equal(data.content);
   });
 });

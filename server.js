@@ -13,5 +13,5 @@ announcerCommentRouter(router);
 const server = http.createServer(router.route());
 
 server.listen(PORT, () => {
-  console.log('ס₪₪₪₪§|(Ξ≥≤≥≤≥≤ΞΞΞΞΞΞΞΞΞΞ>', PORT);
+  console.log('Spooky ʕ•̫͡•ʕ*̫͡*ʕ•͓͡•ʔ-̫͡-ʕ•̫͡•ʔ*̫͡*ʔ-̫͡-ʔ Server', PORT);
 });
