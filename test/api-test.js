@@ -22,7 +22,7 @@ describe('Athlete API Routes', function() {
           expect(res.status).to.equal(200);
           expect(res.body.athlete_name).to.equal('test athlete');
           expect(res.body.sport).to.equal('test sport');
-          expect(res.body.created_at instanceof Date).to.equal(true);
+          expect(Boolean(res.body.created_at instanceof Date)).to.equal(true);
           expect(Boolean(res.body.id)).to.equal(true);
           done();
         })

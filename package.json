@@ -28,6 +28,7 @@
   },
   "dependencies": {
     "bluebird": "^3.4.7",
+    "http-errors": "^1.5.1",
     "node-uuid": "^1.4.7"
   }
 }

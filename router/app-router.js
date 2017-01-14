@@ -27,20 +27,25 @@ module.exports = function(router) {
   router.get('/api/athletes', function(req, res){
     let id = req.url.query.id;
     if(!id) {
-      res.statusCode = 400;
-      res.end();
-      return;
+      storage.availIDs('athletes')
+      .then(filenames => {
+        res.setHeader('Content-Type', 'application/json');
+        res.write(JSON.stringify(filenames));
+        res.end();
+      });
     }
-    storage.readItem('athletes', id)
-    .then(athlete => {
-      res.setHeader('Content-Type', 'application/json');
-      res.write(JSON.stringify(athlete));
-      res.end();
-    })
-    .catch(err => {
-      res.statusCode = err.status;
-      res.end();
-    });
+    if(id){
+      storage.fetchItem('athletes', id)
+      .then(athlete => {
+        res.setHeader('Content-Type', 'application/json');
+        res.write(JSON.stringify(athlete));
+        res.end();
+      })
+      .catch(err => {
+        res.statusCode = err.status;
+        res.end();
+      });
+    }
   });
   router.delete('/api/athletes', function(req, res) {
     let id = req.url.query.id;
