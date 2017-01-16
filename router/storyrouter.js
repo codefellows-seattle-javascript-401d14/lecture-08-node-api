@@ -33,7 +33,7 @@ module.exports = function(router){
       res.end();
     });
   });
-
+  //**********************GET*************************************
   router.get('/api/story', function(req, res){
     let id = req.url.query.id;
     // TODO: put logic right here for a 400 if no id
@@ -43,20 +43,41 @@ module.exports = function(router){
       res.write(JSON.stringify(note));
       res.end();
     })
+    // TODO:  put logic in here for a 404 if getItem didnt find a note
     .catch(err => {
+      if (typeof err === Error) {
+        if (err.status === 404) {
+          res.statusCode = 404;
+          res.end();
+          return;
+        }
+      }
       // make better errors
-      // TODO:  put logic in here for a 404 if getItem didnt find a note
       console.error(err);
       res.statusCode = 500;
       res.end();
     });
   });
+  //**********************DELETE*************************************
   router.delete('/api/story', function (req, res){
     let id =req.url.query.id;
-    storage.removeItem('story' , id)
-    .then(note => {
+    storage.deleteItem('story' , id)
+    .then(() => {
       res.setHeader('Content-Type', 'application/json');
-      res.delete(JSON.stringify(note));
+      res.write(JSON.stringify(id));
+      res.end();
+    })
+    .catch(err => {
+      if (typeof err === Error) {
+        if (err.status === 404) {
+          res.statusCode = 404;
+          res.end();
+          return;
+        }
+      }
+      // make better errors
+      console.error(err);
+      res.statusCode = 500;
       res.end();
     });
   });
