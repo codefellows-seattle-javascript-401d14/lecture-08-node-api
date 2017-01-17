@@ -2,6 +2,8 @@
 
 const storage = require('../lib/storage.js');
 const Beer = require('../model/beer.js');
+const Router = require('express').Router;
+const beerRouter = module.exports = new Router();
 
 module.exports = function(router){
 

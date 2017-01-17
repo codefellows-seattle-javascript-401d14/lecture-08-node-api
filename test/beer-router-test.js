@@ -1,5 +1,8 @@
 'use-strict';
 
+require('dotenv').load();
+
+
 const expect = require('chai').expect;
 const superagent = require('superagent');
 const Beer = require('../model/beer.js');
@@ -9,7 +12,7 @@ require('../server.js');
 
 describe('testing /api/beers', function(){
   describe('testing POST', function() {
-    it ('should return a note', (done) => {
+    it ('should return a beer', (done) => {
       superagent.post(`${apiURL}/api/beers`)
       .send({
         name: 'Double Dead Guy',
@@ -29,6 +32,15 @@ describe('testing /api/beers', function(){
     });
   });
   describe('with invalid input', function() {
+    it('post /api/beers with no id should return a 400 status', (done) => {
+      superagent.post(`${apiURL}/api/beers?`)
+      .then(done)
+      .catch(err => {
+        expect(err.status).to.equal(400);
+        done();
+      })
+      .catch(done);
+    });
   });
 });
 
@@ -71,7 +83,7 @@ describe('testing GET', function() {
       superagent.get(`${apiURL}/api/beers?id=86753`)
       .then(done)
       .catch(err => {
-        expect(err.status).to.equal(500);
+        expect(err.status).to.equal(404);
         done();
       })
       .catch(done);

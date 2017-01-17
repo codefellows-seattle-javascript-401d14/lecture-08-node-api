@@ -1,5 +1,8 @@
 'use strict';
 
+require('dotenv').load();
+
+
 const expect = require('chai').expect;
 const Beer = require('../model/beer.js');
 
