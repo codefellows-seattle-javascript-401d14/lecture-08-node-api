@@ -4,7 +4,7 @@ const storage = require('../lib/storage.js');
 const Story = require('../model/constructor.js');
 
 module.exports = function(router){
-
+//**********************POST*************************************************
   router.post('/api/story', function(req, res){
     // Step one: create a note
     // Step two: store note
