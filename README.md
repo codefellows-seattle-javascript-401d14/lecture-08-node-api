@@ -15,7 +15,7 @@ A rest API to search through relevant data for ridiculous things that announcers
 ## Usage
 - On the command line, type `node server.js` and the server will be up on port 3000
 - To add a new game to the API, type in a POST request, filling the empty quotes with your data:
-  - `http POST :3000/api/games announcer="" comment=""
+  - `http POST :3000/api/games announcer=<name> comment=<comment>`
   - The server will respond with a `200 OK` status and return the new item data.
   - `400 Bad Request` that means need to fill out all properties
   - `200` -- success
