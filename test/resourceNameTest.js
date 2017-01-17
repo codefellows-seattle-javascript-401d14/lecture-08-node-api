@@ -55,9 +55,9 @@ describe('testing /api/story' , function(){
         .catch(done);
       });
 
-      it('should return a story', (done) => {
+      it('should get a story', (done) => {
         superagent.get(`${apiURL}/api/story?id=${this.temporarystory.id}`)
-    //on sucess
+    //on success
     .then(res => {
       expect(res.status).to.equal(200);
       expect(res.body.name).to.equal(this.temporarystory.name);
