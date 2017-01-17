@@ -1,0 +1,35 @@
+{
+  "name": "lecture-08-node-api",
+  "version": "1.0.0",
+  "description": "401 JS --  Lab 08 rest api using http module ===",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha",
+    "debug": "DEBUG=note* ./node_modules/mocha/bin/mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thegrimheep/lecture-08-node-api.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thegrimheep/lecture-08-node-api/issues"
+  },
+  "homepage": "https://github.com/thegrimheep/lecture-08-node-api#readme",
+  "dependencies": {
+    "bluebird": "^3.4.7",
+    "body-parser": "^1.15.2",
+    "cors": "^2.8.1",
+    "debug": "^2.6.0",
+    "express": "^4.14.0",
+    "morgan": "^1.7.0",
+    "node-uuid": "^1.4.7"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.2.0",
+    "superagent": "^3.3.2"
+  }
+}
