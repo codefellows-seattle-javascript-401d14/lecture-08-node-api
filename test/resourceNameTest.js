@@ -5,6 +5,7 @@ const Story = require('../model/constructor.js');
 const superagent = require('superagent');
 const storage = require('../lib/storage.js');
 const apiURL = 'http://localhost:3000';
+require('../server.js');
 
 describe('testing constructor model function', function (){
   it('should return a story with text', function (){
@@ -41,6 +42,17 @@ describe('testing /api/story' , function(){
       }); //end of it statement
     }); // with valid input
     describe('with invalid input or no body', function(){
+      it('should return an error', function(done){
+        superagent.post(`${apiURL}/api/story`)
+        .send({
+          name: 'skdhihdf',
+        })
+        .then(done)
+        .catch(err => {
+          expect(err.status).to.equal(400);
+          done();
+        }); // end of catch error block
+      });
     });
   });
 
@@ -48,21 +60,20 @@ describe('testing /api/story' , function(){
   describe('testing GET', function(){
     describe('with valid input', function(){
       //make a pretend story to see if the GET function works using before
-      before( (done) => {
+      before((done) => {
         this.temporarystory = new Story({name: 'Sheer', text: 'this is madness'});
         storage.setItem('story', this.temporarystory)
         .then (() => done())
         .catch(done);
       });
-
       it('should get a story', (done) => {
         superagent.get(`${apiURL}/api/story?id=${this.temporarystory.id}`)
     //on success
     .then(res => {
       expect(res.status).to.equal(200);
+      expect(res.body.id).to.equal(this.temporarystory.id);
       expect(res.body.name).to.equal(this.temporarystory.name);
       expect(res.body.text).to.equal(this.temporarystory.text);
-      expect(res.body.id).to.equal(this.temporarystory.id);
       done();
     })
     //on failure
