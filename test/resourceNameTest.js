@@ -95,7 +95,7 @@ describe('testing /api/story' , function(){
     }); //end with invalid input - start new describe block below
     describe('with no id found', function(){
       it('should return an error', function(done){
-        superagent.get(`${apiURL}/api/story?id=asjfg`)
+        superagent.get(`${apiURL}/api/story?id=asjfg`)  
         .then(done)
         .catch(err => {
           expect(err.status).to.equal(404);
