@@ -17,9 +17,7 @@ module.exports = function(router){
       res.end();
       return;
     }
-
     let note = new Story(req.body);
-
     storage.setItem('story', note)
     .then(note => {
       res.setHeader('Content-Type', 'application/json');
@@ -53,11 +51,7 @@ module.exports = function(router){
       res.statusCode = err.status;
       console.error(err);
       res.end();
-      return;
     });
-      // make better errors
-    res.statusCode = 500;
-    res.end();
   });
   //**********************DELETE*************************************
   router.delete('/api/story', function (req, res){

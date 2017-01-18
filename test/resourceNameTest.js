@@ -79,8 +79,31 @@ describe('testing /api/story' , function(){
     //on failure
     .catch(done);
       }); //end of it statement
-    }); // with valid input
+    }); // end with valid input - start new test below
     describe('with invalid input or no body', function(){
-    });
+      it('should return an error', function(done){
+        superagent.get(`${apiURL}/api/story`)
+        .send({
+          name: 'blahblahblah',
+        })
+        .then(done)
+        .catch(err => {
+          expect(err.status).to.equal(400);
+          done();
+        }); // end of catch error block
+      }); //end of it block
+    }); //end with invalid input - start new describe block below
+    describe('with no id found', function(){
+      it('should return an error', function(done){
+        superagent.get(`${apiURL}/api/story?id=asjfg`)
+        .then(done)
+        .catch(err => {
+          expect(err.status).to.equal(404);
+          done();
+        }); // end of catch error block
+      }); //end of it block
+    }); //end with invalid input - start new describe block below
+
+
   });
 });//end testing /api/story block
