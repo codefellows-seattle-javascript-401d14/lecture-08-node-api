@@ -23,6 +23,7 @@ module.exports = function(router){
       res.setHeader('Content-Type', 'application/json');
       res.write(JSON.stringify(note));
       res.end();
+      return;
     })
     .catch(err => {
       // make better errors
